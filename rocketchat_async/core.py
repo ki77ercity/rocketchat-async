@@ -129,7 +129,7 @@ class RocketChat:
 
     async def subscribe_to_channel_messages_delete(self, channel_id, callback):
         """
-        Subscribe to all messages in the given channel.
+        Subscribe to all deleted messages in this channel.
 
         Returns the subscription ID.
 
