@@ -12,7 +12,7 @@ Use this library if you:
 
 ## Installation
 
-`pip install -e git+https://github.com/ki77ercity/rocketchat-async#egg=rocketchat-async`
+`pip install git+https://github.com/ki77ercity/rocketchat-async#egg=rocketchat-async`
 
 ## Example usage
 
