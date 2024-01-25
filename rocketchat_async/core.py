@@ -126,3 +126,15 @@ class RocketChat:
     async def unsubscribe(self, subscription_id):
         """Cancel a subscription."""
         await Unsubscribe.call(self._dispatcher, subscription_id)
+
+    async def subscribe_to_channel_messages_delete(self, channel_id, callback):
+        """
+        Subscribe to all messages in the given channel.
+
+        Returns the subscription ID.
+
+        """
+        sub_id = await SubscribeToChannelMessagesDelete.call(self._dispatcher,
+                                                       channel_id, callback)
+        return sub_id
+    
