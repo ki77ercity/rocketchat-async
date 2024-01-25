@@ -44,8 +44,7 @@ async def main(address, username, password):
             #
             # 1. Set up the desired callbacks...
             for channel_id, channel_type in await rc.get_channels():
-                await rc.subscribe_to_channel_messages(channel_id,
-                                                       handle_message)
+                await rc.subscribe_to_channel_messages(channel_id, handle_message)
             for channel_id, channel_type in await rc.get_channels():
                 await rc.subscribe_to_channel_messages_delete(channel_id, handle_message_delete)
             # 2. ...and then simply wait for the registered events.
