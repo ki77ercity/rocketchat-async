@@ -4,7 +4,7 @@ import websockets
 from rocketchat_async.dispatcher import Dispatcher
 from rocketchat_async.methods import Connect, Login, Resume, GetChannels, SendMessage,\
         SendReaction, SendTypingEvent, SubscribeToChannelMessages,\
-        SubscribeToChannelChanges, Unsubscribe
+        SubscribeToChannelChanges, Unsubscribe, SubscribeToChannelMessagesDelete
 
 
 class RocketChat:
