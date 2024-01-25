@@ -279,7 +279,7 @@ class Unsubscribe(RealtimeRequest):
 
 
 class SubscribeToChannelMessagesDelete(RealtimeRequest):
-    """Subscribe to all messages in the given channel."""
+    """Subscribe to all deleted messages in this channel."""
 
     @staticmethod
     def _get_request_msg(msg_id, channel_id):
