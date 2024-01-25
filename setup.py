@@ -9,7 +9,7 @@ setup(
     version="1.2.0",
     description=description,
     long_description=long_description,
-    url="https://github.com/hynek-urban/rocketchat-async",
+    url="https://github.com/ki77ercity/rocketchat-async",
     license="MIT",
     author="Hynek Urban",
     author_email="hynek.urban@gmail.com",
