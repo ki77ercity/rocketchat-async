@@ -276,3 +276,38 @@ class Unsubscribe(RealtimeRequest):
     async def call(cls, dispatcher, subscription_id):
         msg = cls._get_request_msg(subscription_id)
         await dispatcher.call_method(msg)
+
+
+class SubscribeToChannelMessagesDelete(RealtimeRequest):
+    """Subscribe to all messages in the given channel."""
+
+    @staticmethod
+    def _get_request_msg(msg_id, channel_id):
+        return {
+            "msg": "sub",
+            "id": msg_id,
+            "name": "stream-notify-room",
+            "params":[
+                f"{channel_id}/deleteMessage",
+                False,
+            ]
+        }
+
+    @staticmethod
+    def _wrap(callback):
+        def fn(msg):
+            event = msg['fields']['args'][0]
+            msg_id = event['_id']
+            channel_id = msg['fields']['eventName'].split('/')[0]
+
+            return callback(channel_id, msg_id)
+        return fn
+
+    @classmethod
+    async def call(cls, dispatcher, channel_id, callback):
+        # TODO: document the expected interface of the callback.
+        msg_id = cls._get_new_id()
+        msg = cls._get_request_msg(msg_id, channel_id)
+        await dispatcher.create_subscription(msg, msg_id, cls._wrap(callback))
+        return msg_id  # Return the ID to allow for later unsubscription.
+
