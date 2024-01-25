@@ -299,7 +299,6 @@ class SubscribeToChannelMessagesDelete(RealtimeRequest):
             event = msg['fields']['args'][0]
             msg_id = event['_id']
             channel_id = msg['fields']['eventName'].split('/')[0]
-
             return callback(channel_id, msg_id)
         return fn
 
