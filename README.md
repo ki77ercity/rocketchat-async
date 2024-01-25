@@ -24,11 +24,10 @@ from rocketchat_async import RocketChat
 
 def handle_message(channel_id, sender_id, msg_id, thread_id, msg, qualifier):
     """Simply print the message that arrived."""
-    print(msg)
+    print(f'Создано новое сообщение в комнате {channel_id} с id: {msg_id} и текстом: {msg}')
 
 
 def handle_message_delete(channel_id, msg_id):
-    # print(count, channel_id, thread_id)
     """Simply print the message that arrived."""
     print(f'Удалено сообщение из комнаты {channel_id} с id: {msg_id}')
 
